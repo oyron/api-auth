@@ -1,11 +1,11 @@
 {
-  "name": "api-workshop",
+  "name": "library-api",
   "version": "1.0.0",
-  "description": "API Workshop at EDC 2018",
+  "description": "Library API",
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/oyron/edc-api.git"
+    "url": "https://github.com/oyron/library-api.git"
   },
   "scripts": {
     "test": "mocha src/test/test-*.js",
@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "adal-node": "^0.1.28",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "dateformat": "^3.0.3",
