@@ -2,9 +2,15 @@ const express = require('express');
 const router = express.Router();
 const logger = require("./logger");
 const Library = require("./library");
+const passport = require('passport');
+const authenticationStrategy = require('./auth.js');
+
+
+
+passport.use(authenticationStrategy);
 
 router.all('*', logRequest);
-router.get('/books', getBooks);
+router.get('/books', passport.authenticate('oauth-bearer', { session: false }), getBooks);
 router.post('/books', addBook);
 router.get('/books/:id', getBook);
 router.put('/books/:id', updateBook);
