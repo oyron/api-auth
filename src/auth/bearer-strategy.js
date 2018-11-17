@@ -10,7 +10,12 @@ const options = {
 };
 
 const authenticationStrategy = new BearerStrategy(options, (token, done) => {
-    return done(null, token.upn, token);
+    const user = {
+        email: token.upn,
+        name: token.name,
+        roles: ["LibraryReader"]
+    };
+    return done(null, user, token);
 });
 
 module.exports = authenticationStrategy;
