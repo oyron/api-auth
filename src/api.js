@@ -10,11 +10,11 @@ passport.use(authenticationStrategy);
 
 router.all('*', logRequest);
 router.all('*', passport.authenticate('oauth-bearer', { session: false }));
-router.get('/books', permit('LibraryReader'), getBooks);
-router.post('/books', addBook);
-router.get('/books/:id', getBook);
-router.put('/books/:id', updateBook);
-router.delete('/books/:id', deleteBook);
+router.get('/books', permit('LibraryReader', 'LibraryAdmin'), getBooks);
+router.post('/books', permit('LibraryAdmin'), addBook);
+router.get('/books/:id', permit('LibraryReader', 'LibraryAdmin'), getBook);
+router.put('/books/:id', permit('LibraryAdmin'), updateBook);
+router.delete('/books/:id', permit('LibraryAdmin'), deleteBook);
 router.use(unknownRouteHandler);
 router.use(errorHandler);
 
