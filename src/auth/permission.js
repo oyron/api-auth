@@ -9,7 +9,7 @@ function permit(...allowed) {
         if (req.user && isAllowed(req.user.roles))
             next(); // role is allowed, so continue on the next middleware
         else {
-            res.status(403).json({message: "Forbidden"}); // user is forbidden
+            res.status(403).json({message: "Forbidden"}); // 403 - user is not authorized
         }
     }
 

@@ -20,9 +20,11 @@
     "dateformat": "^3.0.3",
     "express": "^4.16.3",
     "http": "0.0.0",
+    "node-cache": "^4.2.0",
     "passport": "^0.4.0",
     "passport-azure-ad": "^4.0.0",
     "path": "^0.12.7",
+    "request-promise": "^4.2.2",
     "winston": "^3.1.0"
   },
   "devDependencies": {
