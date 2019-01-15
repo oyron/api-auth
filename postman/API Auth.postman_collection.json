@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b69c66d2-fdf4-440a-b990-1c0f1ee44c04",
+		"_postman_id": "6591e3dc-16dc-4ca2-9072-82b47742ee71",
 		"name": "API Auth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -15,11 +15,10 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:3000/api/books",
+					"raw": "{{HOST URL}}/api/books",
 					"host": [
-						"localhost"
+						"{{HOST URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"books"
@@ -33,13 +32,15 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "localhost:3000/api/books/1",
+					"raw": "{{HOST URL}}/api/books/1",
 					"host": [
-						"localhost"
+						"{{HOST URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"books",
@@ -64,11 +65,10 @@
 					"raw": "{\n\t\"title\": \"The Hobbit\", \n\t\"author\": \"J.R.R. Tolkien\"\n}"
 				},
 				"url": {
-					"raw": "localhost:3000/api/books",
+					"raw": "{{HOST URL}}/api/books",
 					"host": [
-						"localhost"
+						"{{HOST URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"books"
@@ -87,11 +87,10 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:3000/api/books/2",
+					"raw": "{{HOST URL}}/api/books/2",
 					"host": [
-						"localhost"
+						"{{HOST URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"books",
@@ -116,11 +115,10 @@
 					"raw": "{\n\t\"title\": \"The Statoil Book\", \n\t\"author\": \"Eldar Sætre\"\n}"
 				},
 				"url": {
-					"raw": "localhost:3000/api/books/1",
+					"raw": "{{HOST URL}}/api/books/1",
 					"host": [
-						"localhost"
+						"{{HOST URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"books",
