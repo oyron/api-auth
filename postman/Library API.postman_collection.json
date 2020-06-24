@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "6591e3dc-16dc-4ca2-9072-82b47742ee71",
-		"name": "API Auth",
+		"_postman_id": "34ec7693-2354-4331-b75e-e8d86d7e064d",
+		"name": "Library API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -10,10 +10,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{HOST URL}}/api/books",
 					"host": [
@@ -32,10 +28,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{HOST URL}}/api/books/1",
 					"host": [
@@ -112,7 +104,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"title\": \"The Statoil Book\", \n\t\"author\": \"Eldar Sætre\"\n}"
+					"raw": "{\n\t\"title\": \"The Equinor Book\", \n\t\"author\": \"Eldar Sætre\"\n}"
 				},
 				"url": {
 					"raw": "{{HOST URL}}/api/books/1",
@@ -128,5 +120,6 @@
 			},
 			"response": []
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
