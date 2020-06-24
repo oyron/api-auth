@@ -2,14 +2,12 @@ const express = require('express');
 const router = express.Router();
 const logger = require("./logger");
 const Library = require("./library");
-const passport = require('passport');
-const authenticationStrategy = require('./auth/bearer-strategy');
-const permit = require('./auth/permission');
+//const permit = require('./auth/permission');
 
-passport.use(authenticationStrategy);
+const permit = () => (_req, _res, next) => next();
+
 
 router.all('*', logRequest);
-router.all('*', passport.authenticate('oauth-bearer', { session: false }));
 router.get('/books', permit('LibraryReader', 'LibraryAdmin'), getBooks);
 router.post('/books', permit('LibraryAdmin'), addBook);
 router.get('/books/:id', permit('LibraryReader', 'LibraryAdmin'), getBook);
@@ -20,7 +18,7 @@ router.use(errorHandler);
 
 const library = new Library();
 
-function getBooks(req, res) {
+function getBooks(_req, res) {
     res.send(library.getAllBooks());
 }
 
@@ -64,7 +62,7 @@ function deleteBook(req, res) {
     }
 }
 
-function logRequest(req, res, next) {
+function logRequest(req, _res, next) {
     let payloadLog = '';
     if (Object.keys(req.body).length > 0) {
         payloadLog = 'Payload: ' + JSON.stringify(req.body);
@@ -78,8 +76,7 @@ function unknownRouteHandler(req, res)  {
     res.status(400).send('Bad request - non existing API route');
 }
 
-// noinspection JSUnusedLocalSymbols
-function errorHandler (err, req, res, next) {
+function errorHandler (err, _req, res, _next) {
     logger.error(err.stack);
     res.status(500).send(err.stack);
 }
