@@ -1,0 +1,46 @@
+openapi: '3.0.1'
+info:
+  title: Library API
+  description: Library API - EDC API Workshop
+  version: 1.0.0
+  termsOfService: 'https://'
+  contact:
+    name: 'Øyvind Rønne'
+    url: 'https://wiki.equinor.com/wiki/index.php/Software:Free_and_open-source_software'
+    email: oyron@equinor.com
+servers:
+  - url: 'https://ac.equinor.com'
+tags:
+  - name: library
+    description: A library of books
+paths:
+  /books:
+    get:
+      tags:
+        - library
+      summary: Return all books
+      operationId: getBooks
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        author:
+          type: string
+  
+externalDocs:
+  description: API documentation
+  url: 'https://ac.equinor.com'
