@@ -15,22 +15,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "cors": "^2.8.4",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dateformat": "^3.0.3",
-    "express": "^4.16.3",
-    "http": "0.0.0",
-    "node-cache": "^4.2.0",
-    "passport": "^0.4.0",
-    "passport-azure-ad": "^4.0.0",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "node-cache": "^5.1.1",
     "path": "^0.12.7",
-    "request-promise": "^4.2.2",
-    "winston": "^3.1.0"
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "chai-http": "^4.2.0",
-    "mocha": "^5.2.0",
-    "nodemon": "^1.18.4"
+    "chai-http": "^4.3.0",
+    "eslint": "^7.3.1",
+    "eslint-plugin-node": "^11.1.0",
+    "mocha": "^8.0.1",
+    "nodemon": "^2.0.4"
   }
 }
