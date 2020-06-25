@@ -1,15 +1,15 @@
 openapi: '3.0.1'
 info:
   title: Library API
-  description: Library API - EDC API Workshop
+  description: Library API - Demo API
   version: 1.0.0
-  termsOfService: 'https://'
+  termsOfService: 'https://lib.azurewebsites.net/terms.html'
   contact:
     name: 'Øyvind Rønne'
-    url: 'https://wiki.equinor.com/wiki/index.php/Software:Free_and_open-source_software'
+    url: 'https://github.com/equinor/api-strategy'
     email: oyron@equinor.com
 servers:
-  - url: 'https://ac.equinor.com'
+  - url: 'https://lib.azurewebsites.net/api'
 tags:
   - name: library
     description: A library of books
@@ -29,6 +29,102 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Book'
+                  
+    post:
+        tags:
+          - library
+        summary: Add a new book to the library
+        operationId: addBook
+        requestBody:
+          description: bookData object that needs to be added to the library
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookData'
+        responses:
+          '201':
+            description: Created
+            content:
+              application/json:
+                schema:
+                  items:
+                    $ref: '#/components/schemas/Book'
+                    
+  /books/{id}:
+    get:
+      tags:
+        - library
+      summary: Get a specific book
+      operationId: getBook
+      parameters:
+        - name: id
+          in: path
+          description: Book id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Book'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+
+    put:
+      tags:
+        - library
+      summary: Update existing book
+      operationId: updateBook
+      parameters:
+        - name: id
+          in: path
+          description: Book id
+          schema:
+            type: integer
+          required: true
+      requestBody:
+          description: bookData object that needs to be added to the library
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookData'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Book'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+    delete:
+      tags:
+        - library
+      summary: Delete existing book
+      operationId: deleteBook
+      parameters:
+        - name: id
+          in: path
+          description: Book id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '204':
+          description: No content
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
 components:
   schemas:
     Book:
@@ -40,7 +136,14 @@ components:
           type: string
         author:
           type: string
+    BookData:
+      type: object
+      properties:
+        title:
+          type: string
+        author:
+          type: string
   
 externalDocs:
   description: API documentation
-  url: 'https://ac.equinor.com'
+  url: 'https://github.com/equinor/api-strategy'
