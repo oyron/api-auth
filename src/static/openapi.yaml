@@ -106,6 +106,7 @@ paths:
           description: Bad request
         '404':
           description: Not found
+
     delete:
       tags:
         - library
@@ -125,6 +126,7 @@ paths:
           description: Bad request
         '404':
           description: Not found
+
 components:
   schemas:
     Book:
