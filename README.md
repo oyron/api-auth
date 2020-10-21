@@ -1,1 +1,2 @@
-# api-auth
+# Example API for demo purposes
+
